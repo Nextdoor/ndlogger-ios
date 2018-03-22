@@ -13,7 +13,7 @@ Add dependency in the Swift Package
 	let package = Package(
     ...
         dependencies: [
-         .package(url: "git@git.corp.nextdoor.com:Nextdoor/entry-point.git", from("0.0.2"))
+         .package(url: "git@git.corp.nextdoor.com:Nextdoor/ndlogger-ios.git", from("0.0.2"))
         ],
     ...
     targets: [
