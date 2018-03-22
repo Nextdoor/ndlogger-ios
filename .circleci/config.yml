@@ -8,3 +8,9 @@ jobs:
       - run:
           name: Run tests 
           command: swift test 
+
+workflows:
+  version: 2
+  ndlogger:
+    jobs:
+      - build
