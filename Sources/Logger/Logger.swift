@@ -180,21 +180,23 @@ public class Logger: NSObject {
         finalizeStream(rollover: false)
     }
 
-    /**
-     Logs the message string onto disk.
+    public func log(_ items: Any...,
+        file: String = #file,
+        line: Int = #line) {
+        #if DEBUG
+        let separator = ""
+        let terminator = "\n"
+        Swift.print("\(file): \(line):")
+        var i = items.startIndex
+        repeat {
+            Swift.print(items[i], separator: separator, terminator: i == (items.endIndex - 1) ? terminator : separator)
+            i += 1
+        } while i < items.endIndex
+        #endif
 
-     Note the following method is more friendly to Swift.
+        logToFile(text: "\(file):\(line): \(items)")
+    }
 
-     public func logSwfit(message:String,
-     file: String = __FILE__,
-     line: Int = __LINE__) {
-     var date = NSDate()
-     logToFile("\(date): \(file.lastPathComponent):\(line): \(message)")
-     }
-
-
-     - parameter message: Message to be logged.
-     */
     @objc(log:)
     public func log(message: String) {
         logToFile(text: message)
@@ -304,4 +306,3 @@ public class Logger: NSObject {
         }
     }
 }
-

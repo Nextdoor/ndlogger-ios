@@ -44,7 +44,7 @@ class LoggerTests: XCTestCase {
 
     // Adds about 1 second to the unit test time.
     func testWritePerformance() {
-        self.measure() {
+        self.measure {
             for count in 0...1000 {
                 self.logger.log(message: "Sample log message \(count)")
             }
@@ -54,8 +54,7 @@ class LoggerTests: XCTestCase {
     static var allTests = [
         ("testEmptyLog", testEmptyLog),
         ("testLogFileURL", testLogFileURL),
-        ("testWriteLog", testWriteLog),
+        ("testWriteLog", testWriteLog)
     ]
 
 }
-
