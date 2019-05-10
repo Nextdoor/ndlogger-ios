@@ -1,4 +1,4 @@
-FROM swift:4.2.0
+FROM swift:5.0
 MAINTAINER Abhijeet Kumar 
 LABEL Description="Image for building and running Logging library for iOS" 
 
